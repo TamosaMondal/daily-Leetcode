@@ -6,20 +6,17 @@ Return x if the array is special, otherwise, return -1. It can be proven that if
 */
 class Solution {
     public int specialArray(int[] nums) {
-        int n=nums.length ;
-        int count=0;
-        while(n>0){
-            count=0;
-            for(int i=0;i<nums.length;i++){
-                if(nums[i] >= n){
-                    count++;
+            for(int i=1;i<=nums.length;i++){
+                int count=0;
+                for(int num:nums){
+                    if(num>=i){
+                        count++;
+                    }
+                }
+                if(count==i){
+                    return i;
+                }
             }
-         }
-        if(count == n){
-         return n;
-        }
-        n--;
-    }
-    return -1;
+            return -1;
     }
 }
